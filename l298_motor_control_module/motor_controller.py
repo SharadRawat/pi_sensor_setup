@@ -27,7 +27,7 @@ def forward_slow(sec):
     init()
     pwm17 = gpio.PWM(12,100)
     pwm22 = gpio.PWM(13,100)
-    t=50
+    t=40
     pwm17.start(t)
     pwm22.start(t)
     
@@ -110,7 +110,7 @@ def forward_right_turn(sec):
 
     
     
-seconds = 2
+seconds = 1
 
 time.sleep(seconds)
 print("forward")
@@ -118,9 +118,9 @@ print("forward")
 time.sleep(seconds-1)
 
 #reverse(seconds-1)
-forward_slow(seconds+5)
-forward_faster(seconds+5)
-forward_fastest(seconds+5)
+forward_slow(seconds+3)
+forward_faster(seconds+3)
+forward_fastest(seconds+3)
 time.sleep(seconds-1)
 
 #forward_right_turn(seconds-4)
