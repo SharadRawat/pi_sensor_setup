@@ -23,7 +23,7 @@ def Calibrate():
     object_points[:,:2] = np.mgrid[0:7, 0:7].T.reshape(-1,2)
     object_points = object_points*square_size
     
-    fnames = glob.glob('/home/qxz0g9i/Documents/perception/pi_sensor_setup/camera_calibration/images/'+'*.'+'jpg')
+    fnames = glob.glob('/path/to/folder/pi_sensor_setup/camera_calibration/images/'+'*.'+'jpg')
     
     
     for fname in fnames:
