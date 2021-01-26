@@ -12,17 +12,6 @@ def init():
 
 
 
-
-def forward(sec):
-    init()
-    gpio.output(17, False)
-    gpio.output(22, True)
-    gpio.output(23, True)
-    gpio.output(24, False)
-    time.sleep(sec)
-    gpio.cleanup()
-    
-
 def forward_slow(sec):
     init()
     pwm17 = gpio.PWM(12,100)
@@ -82,6 +71,12 @@ def forward_fastest(sec):
     
 def reverse(sec):
     init()
+    pwm17 = gpio.PWM(12,100)
+    pwm22 = gpio.PWM(13,100)
+    t=100
+    pwm17.start(t)
+    pwm22.start(t)
+    
     gpio.output(17, True)
     gpio.output(22, False)
     gpio.output(23, False)
@@ -92,6 +87,13 @@ def reverse(sec):
 
 def left_turn(sec):
     init()
+    
+    pwm17 = gpio.PWM(12,100)
+    pwm22 = gpio.PWM(13,100)
+    t=100
+    pwm17.start(t)
+    pwm22.start(t)
+    
     gpio.output(17, True)
     gpio.output(22, False)
     gpio.output(23, True)
@@ -100,7 +102,14 @@ def left_turn(sec):
     gpio.cleanup()
     
 def forward_right_turn(sec):
+    
     init()
+    pwm17 = gpio.PWM(12,100)
+    pwm22 = gpio.PWM(13,100)
+    t=100
+    pwm17.start(t)
+    pwm22.start(t)
+    
     gpio.output(17, False)
     gpio.output(22, True)
     gpio.output(23, True)
@@ -112,24 +121,32 @@ def forward_right_turn(sec):
     
 seconds = 1
 
-time.sleep(seconds)
-print("forward")
+
+
 #forward(seconds-1)
-time.sleep(seconds-1)
 
 #reverse(seconds-1)
-forward_slow(seconds+3)
-forward_faster(seconds+3)
-forward_fastest(seconds+3)
-time.sleep(seconds-1)
+print("forward")
+
+print("forward and right")
+forward_right_turn(seconds)
+
+forward_right_turn(seconds)
+
+forward_right_turn(seconds)
+
+forward_right_turn(seconds)
+#forward_faster(seconds+3)
+#forward_fastest(seconds+3)
+time.sleep(1)
 
 #forward_right_turn(seconds-4)
 
 #reverse(seconds-1)
 
 
-#forward_right_turn(seconds-4.5)
-print("reverse")
+#forward(seconds+1)
+#print("reverse")
 #reverse(seconds-4)
 #time.sleep(seconds-4.5)
 '''
