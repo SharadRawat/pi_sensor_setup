@@ -1,10 +1,12 @@
 import RPi.GPIO as gpio
 import time
+from RpiMotorLib import rpi_dc_lib
+
 
 def init():
     gpio.setmode(gpio.BCM)
-    gpio.setup(17, gpio.OUT)
-    gpio.setup(22, gpio.OUT)
+    gpio.setup(17, gpio.OUT) 
+    gpio.setup(22, gpio.OUT) 
     gpio.setup(23, gpio.OUT)
     gpio.setup(24, gpio.OUT)
     gpio.setup(12, gpio.OUT)
@@ -118,47 +120,12 @@ def forward_right_turn(sec):
     gpio.cleanup()  
 
     
-    
-seconds = 1
+print("forward for a second ")
 
+forward_fastest(1)
+#reverse(1)
 
-
-#forward(seconds-1)
-
-#reverse(seconds-1)
-print("forward")
-
-print("forward and right")
-forward_right_turn(seconds)
-
-forward_right_turn(seconds)
-
-forward_right_turn(seconds)
-
-forward_right_turn(seconds)
-#forward_faster(seconds+3)
-#forward_fastest(seconds+3)
+print("Motor stopped")
 time.sleep(1)
 
-#forward_right_turn(seconds-4)
 
-#reverse(seconds-1)
-
-
-#forward(seconds+1)
-#print("reverse")
-#reverse(seconds-4)
-#time.sleep(seconds-4.5)
-'''
-print("left_turn")
-left_turn(seconds)
-time.sleep(seconds)
-
-
-print("right_turn")
-forward_right_turn(seconds-2)
-forward(seconds)
-time.sleep(seconds)
-'''
-
-### TODO Map the time with how much should the robot rotate

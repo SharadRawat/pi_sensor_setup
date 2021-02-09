@@ -31,7 +31,7 @@ def calculate_speed(r_cm):
         km_per_sec = dist_km / elapse       # calculate KM/sec
         km_per_hour = km_per_sec * 3600     # calculate KM/h
         dist_meas = (dist_km*pulse)*1000    # measure distance traverse in meter
-        return km_per_hour
+        return rpm
 
 def init_interrupt():
     GPIO.add_event_detect(sensor, GPIO.FALLING, callback = calculate_elapse, bouncetime = 20)
@@ -39,8 +39,17 @@ def init_interrupt():
 if __name__ == '__main__':
     init_GPIO()
     init_interrupt()
+    avg_rpm = 0.0 
+    count = 0
     while True:
-        print(calculate_speed(20)) # call this function with wheel radius as parameter
+        avg_rpm_cum = avg_rpm
+        count += 1
+        #print(calculate_speed(3))
+        #avg_rpm_cum += calculate_speed(3) # call this function with wheel radius as parameter
         #print('rpm:{0:.0f}-RPM kmh:{1:.0f}-KMH dist_meas:{2:.2f}m pulse:{3}'.format(rpm,km_per_hour,dist_meas,pulse))
+        if calculate_speed(3) is not None:
+            avg_rpm_cum += calculate_speed(3)
+            avg_rpm = avg_rpm_cum/2
+            print("Average Rpm over a seconds is {}".format(avg_rpm))
         sleep(0.1)
-
+    
