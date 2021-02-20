@@ -122,7 +122,7 @@ def forward_right_turn(sec):
     
 print("forward for a second ")
 
-forward_fastest(1)
+forward_fastest(3)
 #reverse(1)
 
 print("Motor stopped")
