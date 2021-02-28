@@ -1,6 +1,6 @@
 # Raspberry Pi - Sensors Interfacing
 
-This repository contains code required to get meaningful data from:
+This repository contains code required to get meaningful data from (integrate the sensor with raspberry pi):
 1. Ultrasonic Sensor
 2. IMU
 3. This repository contains instrutions to run motors via Motor controller module.
